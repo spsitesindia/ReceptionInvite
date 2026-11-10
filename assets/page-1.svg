@@ -6,7 +6,7 @@
  <text x="600" y="485" font-family="Georgia,serif" font-size="67" font-weight="bold" letter-spacing="3">SAYAN</text>
  <path d="M405 505 Q482 516 558 504 M642 504 Q718 516 795 505" fill="none" stroke="#b58a4a" stroke-width="2"/>
  <path d="M600 496 C592 504 592 510 600 515 C608 510 608 504 600 496Z" fill="#b58a4a"/>
- <text x="600" y="567" font-family="Brush Script MT,Segoe Script,cursive" font-size="55" font-style="italic" fill="#9a7041">weds</text>
+ <text x="600" y="567" font-family="Brush Script MT,Segoe Script,cursive" font-size="65" font-style="italic" fill="#9a7041">weds</text>
  <text x="600" y="645" font-family="Georgia,serif" font-size="67" font-weight="bold" letter-spacing="2.5">SUPRIYA</text>
  <path d="M535 666 Q600 678 665 666" fill="none" stroke="#b58a4a" stroke-width="2"/>
 </g>
