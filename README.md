@@ -1,6 +1,6 @@
-# Wedding invitation website — version 2
+# Wedding invitation website — version 3
 
-A three-page static invitation site, ready for GitHub Pages. Version 2 removes the QR codes from pages 2 and 3 and shows the venue address as text on page 3. The artwork and text are in the SVG files under `assets/`.
+A three-page static invitation site, ready for GitHub Pages. Version 3 starts from the latest version 2 pages, preserving their existing content and adding a brief entrance animation to the page artwork. The animation respects reduced-motion preferences. Artwork and text are in the SVG files under `assets/`.
 
 ## Publish on GitHub Pages
 
@@ -13,3 +13,4 @@ A three-page static invitation site, ready for GitHub Pages. Version 2 removes t
 7. After GitHub finishes publishing, use the site link shown on the Pages settings screen. It usually looks like `https://YOUR-USERNAME.github.io/REPOSITORY-NAME/`.
 
 To change wording or artwork later, edit the corresponding SVG in `assets/`, then commit the changes. Page links are in `index.html`, `page-2.html`, and `page-3.html`.
+

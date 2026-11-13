@@ -6,9 +6,58 @@
   <meta name="theme-color" content="#fff7df">
   <title>Wedding Invitation</title>
   <style>
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fff7df;color:#513a2b;font-family:Georgia,"Nirmala UI",serif}main{width:min(100%,720px);margin:0 auto}.art{display:block;width:100%;height:auto}.page-two-art{aspect-ratio:1200 / 4400}.nav{display:flex;justify-content:space-between;gap:1rem;padding:1rem max(1rem,4vw);background:#fff7df}.nav a{color:#513a2b;text-decoration:none;border:1px solid #b58a4a;border-radius:999px;padding:.7rem 1.1rem;font-size:1rem}.nav a:focus-visible{outline:3px solid #79502e;outline-offset:3px}.end{text-align:right}
-  </style>
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fff7df;color:#861f25;font-family:Georgia,"Nirmala UI",serif}main{width:min(100%,720px);margin:0 auto}.art{display:block;width:100%;height:auto}.page-two-art{aspect-ratio:1200 / 4400}.nav{display:flex;justify-content:space-between;gap:1rem;padding:1rem max(1rem,4vw);background:#fff7df}.nav a{color:#861f25;text-decoration:none;border:1px solid #9c5051;border-radius:999px;padding:.7rem 1.1rem;font-size:1rem}.nav a:focus-visible{outline:3px solid #861f25;outline-offset:3px}.end{text-align:right}
+      @keyframes pageReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    main>.art,.poster{animation:pageReveal .75s ease-out both}
+    @media(prefers-reduced-motion:reduce){main>.art,.poster{animation:none}}  </style>
 </head>
 <body>  <main><object class="art page-two-art" data="assets/page-2.svg" type="image/svg+xml" aria-label="Bengali wedding invitation details">Bengali wedding invitation</object><nav class="nav" aria-label="Invitation pages"><a href="index.html">← Previous</a><a class="end" href="page-3.html">Next →</a></nav></main>
+<script>
+(()=>{
+  const page=document.querySelector('object.page-two-art');
+  if(!page)return;
+  let active=false,frame=0,items=[];
+  const setup=()=>{
+    if(active)return;
+    let doc;
+    try{doc=page.contentDocument}catch{return}
+    if(!doc)return;
+    items=Array.from(doc.querySelectorAll('.scroll-reveal'));
+    if(!items.length)return;
+    active=true;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    items.forEach((item,index)=>{
+      item.style.opacity='0';
+      item.style.transform='translateY(16px)';
+      item.style.transition='opacity .7s ease, transform .7s ease';
+      item.style.transitionDelay=Math.min(index*55,220)+'ms';
+    });
+    const update=()=>{
+      frame=0;
+      const outer=page.getBoundingClientRect();
+      const innerHeight=doc.documentElement.clientHeight||outer.height;
+      const scale=outer.height/innerHeight;
+      for(const item of items){
+        if(item.dataset.revealed==='true')continue;
+        const r=item.getBoundingClientRect();
+        const top=outer.top+r.top*scale;
+        const bottom=outer.top+r.bottom*scale;
+        if(top<window.innerHeight*.86&&bottom>0){
+          item.dataset.revealed='true';
+          item.style.opacity='1';
+          item.style.transform='translateY(0)';
+        }
+      }
+    };
+    const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)};
+    window.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule);
+    schedule();
+  };
+  page.addEventListener('load',setup);
+  setup();
+})();
+</script>
 </body>
 </html>
+
