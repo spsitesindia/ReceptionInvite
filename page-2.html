@@ -16,43 +16,25 @@
 (()=>{
   const page=document.querySelector('object.page-two-art');
   if(!page)return;
-  let active=false,frame=0,items=[];
+  let started=false;
   const setup=()=>{
-    if(active)return;
+    if(started)return;
     let doc;
     try{doc=page.contentDocument}catch{return}
     if(!doc)return;
-    items=Array.from(doc.querySelectorAll('.scroll-reveal'));
+    const items=Array.from(doc.querySelectorAll('.scroll-reveal'));
     if(!items.length)return;
-    active=true;
+    started=true;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     items.forEach((item,index)=>{
       item.style.opacity='0';
-      item.style.transform='translateY(16px)';
-      item.style.transition='opacity .7s ease, transform .7s ease';
-      item.style.transitionDelay=Math.min(index*55,220)+'ms';
+      item.style.transform='translateY(14px)';
+      item.style.transition='opacity .55s ease, transform .55s ease';
+      window.setTimeout(()=>{
+        item.style.opacity='1';
+        item.style.transform='translateY(0)';
+      },180+index*430);
     });
-    const update=()=>{
-      frame=0;
-      const outer=page.getBoundingClientRect();
-      const innerHeight=doc.documentElement.clientHeight||outer.height;
-      const scale=outer.height/innerHeight;
-      for(const item of items){
-        if(item.dataset.revealed==='true')continue;
-        const r=item.getBoundingClientRect();
-        const top=outer.top+r.top*scale;
-        const bottom=outer.top+r.bottom*scale;
-        if(top<window.innerHeight*.86&&bottom>0){
-          item.dataset.revealed='true';
-          item.style.opacity='1';
-          item.style.transform='translateY(0)';
-        }
-      }
-    };
-    const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)};
-    window.addEventListener('scroll',schedule,{passive:true});
-    window.addEventListener('resize',schedule);
-    schedule();
   };
   page.addEventListener('load',setup);
   setup();
