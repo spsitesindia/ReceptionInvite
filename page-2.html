@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,33 +11,7 @@
     main>.art,.poster{animation:pageReveal .75s ease-out both}
     @media(prefers-reduced-motion:reduce){main>.art,.poster{animation:none}}  </style>
 </head>
-<body>  <main><object class="art page-two-art" data="assets/page-2.svg" type="image/svg+xml" aria-label="Bengali wedding invitation details">Bengali wedding invitation</object><nav class="nav" aria-label="Invitation pages"><a href="index.html">← Previous</a><a class="end" href="page-3.html">Next →</a></nav></main>
-<script>
-(()=>{
-  const page=document.querySelector('object.page-two-art');
-  if(!page)return;
-  let started=false;
-  const setup=()=>{
-    if(started)return;
-    let doc;
-    try{doc=page.contentDocument}catch{return}
-    if(!doc)return;
-    const items=Array.from(doc.querySelectorAll('.scroll-reveal'));
-    if(!items.length)return;
-    started=true;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    items.forEach((item,index)=>{
-      item.style.opacity='0';
-      item.style.transition='opacity .55s ease';
-      window.setTimeout(()=>{
-        item.style.opacity='1';
-      },150+index*280);
-    });
-  };
-  page.addEventListener('load',setup);
-  setup();
-})();
-</script>
+<body>  <main><object class="art page-two-art" data="assets/page-2.svg" type="image/svg+xml" aria-label="Bengali wedding invitation details">Bengali wedding invitation details</object><nav class="nav" aria-label="Invitation pages"><a href="index.html">← Previous</a><a class="end" href="page-3.html">Next →</a></nav></main>
 </body>
 </html>
 
