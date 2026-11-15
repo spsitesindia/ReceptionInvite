@@ -2,7 +2,7 @@
 
 A three-page static invitation site, ready for GitHub Pages. Version 5 carries forward the latest invitation content and design from version 4. The page 1 title and page 3 reception details appear in sequence; page 2 reveals its sections one by one after load. Animations respect reduced-motion preferences. Artwork and text are in the SVG files under `assets/`.
 
-`assets/border-portrait.svg` and `assets/border-page2.svg` are editable border masters; the page SVGs include inline border copies. `assets/bengali-emblem.png` and `assets/kalpana-unicode.ttf` are used on page 2.
+The page SVGs contain their border artwork. `assets/bengali-emblem.png` and `assets/kalpana-unicode.ttf` are used on page 2.
 
 ## Publish on GitHub Pages
 
