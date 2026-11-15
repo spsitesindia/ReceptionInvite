@@ -1,6 +1,6 @@
-# Wedding invitation website — version 6
+# Wedding invitation website — version 6.5
 
-A three-page static invitation site, ready for GitHub Pages. version 6 carries forward the latest invitation content and design from version 5. The page 1 title and page 3 reception details appear in sequence; page 2 reveals its sections one by one after load. Animations respect reduced-motion preferences. Artwork and text are in the SVG files under `assets/`.
+A three-page static invitation site, ready for GitHub Pages. Version 6.5 carries forward the latest invitation content and design from version 5. The page 1 title and page 3 reception details appear in sequence; page 2 reveals its sections one by one after load. Animations respect reduced-motion preferences. A matching loading screen stays visible until each page's artwork is ready; the cover artwork is preloaded. Artwork and text are in the SVG files under `assets/`.
 
 The page SVGs contain their border artwork and use optimized WebP artwork. Page 2 uses a character-subset Bengali font at `assets/kalpana-unicode.woff`; page 3 embeds subset WOFF fonts.
 
